@@ -1,0 +1,1 @@
+ALTER TABLE projects MODIFY COLUMN image_url VARCHAR(255) NULL; 
