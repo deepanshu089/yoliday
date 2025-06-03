@@ -6,15 +6,15 @@ CREATE TABLE IF NOT EXISTS projects (
     category VARCHAR(100) NOT NULL,
     author VARCHAR(100) NOT NULL,
     image_url VARCHAR(255) NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
 );
 
 -- Create cart table
 CREATE TABLE IF NOT EXISTS cart (
     id INT PRIMARY KEY AUTO_INCREMENT,
     project_id INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at DATETIME NOT NULL,
     FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
 );
 
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
 );
 
 -- Create user_projects table (for future user-project relationships)
@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS user_projects (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
     project_id INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
     UNIQUE KEY unique_user_project (user_id, project_id)
-); 
+);
