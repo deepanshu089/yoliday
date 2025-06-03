@@ -199,8 +199,14 @@ const Projects: React.FC = () => {
       )}
 
       <div className="space-y-4">
-        {filteredProjects.map((project: Project) => (
-          <div key={project.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
+        {filteredProjects.map((project: Project, index) => (
+          <div 
+            key={project.id} 
+            className={cn(
+              "bg-white rounded-lg shadow-sm overflow-hidden animate-fade-in",
+              `delay-${index * 50}` // Staggered delay based on index
+            )}
+          >
             <div className="flex p-3 items-center gap-4">
               <img
                 src={project.image_url}
