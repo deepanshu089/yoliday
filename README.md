@@ -1,4 +1,6 @@
 # Yoliday Project
+![image](https://github.com/user-attachments/assets/30d97378-92e0-4634-9e62-514915da8908)
+
 
 This repository contains the code for the Yoliday project, which includes a backend API for managing projects and a shopping cart, and a React frontend for interacting with the API.
 
